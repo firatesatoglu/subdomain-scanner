@@ -1,0 +1,6 @@
+python-dotenv
+cloudscraper
+argparse
+urllib3
+requests
+bs4
