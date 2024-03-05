@@ -18,7 +18,7 @@ def hackertarget_subscanner(domain:str):
     if request_status_code != 200:
         return subdomain_list
     elif "API count exceeded" in hackertarget_search_response.text:
-        return None
+        return subdomain_list
 
     hackertarget_search_response= hackertarget_search_response.text.split('\n')
     for found_subdomain in hackertarget_search_response:

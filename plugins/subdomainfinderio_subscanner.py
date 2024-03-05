@@ -21,11 +21,10 @@ def subdomainfinderio_subscanner(domain):
     
     post_data= { 
         'domain': domain, 
-        'scan': '',
-    }
+        'scan': '',}
 
     request_status_code, subdomainfinderio_search_response= send_post_request(SUBDOMAINFINDER_IO_URL, post_data=post_data, request_headers=request_headers)
-
+    
     if request_status_code != 200:
         return subdomain_list
 
@@ -37,5 +36,9 @@ def subdomainfinderio_subscanner(domain):
             found_subdomain= columns[0].text.strip()
             subdomain_list.append(found_subdomain)
 
+        print('Subdomainfinder.io Subdomain Scanner Done! Total Subdomains Found:', len(subdomain_list))
+        return subdomain_list
+    
+    else:
         print('Subdomainfinder.io Subdomain Scanner Done! Total Subdomains Found:', len(subdomain_list))
         return subdomain_list
